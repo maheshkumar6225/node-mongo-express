@@ -9,6 +9,7 @@ function startapp() {
     let app = express();
     require('./express')(app, config);
     require('./controller/index').loadControllers(app);
+    require('./middleware/post-middleware').loadPostMiddleware(app);
     require('./cluster')(app, config);
 }
 db.connectDatabase(config.mongoose, eventEmitter);

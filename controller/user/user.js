@@ -6,10 +6,10 @@ module.exports = {
     addUserDeatils
 }
 
-async function getLogin(req, res, next) {
-    console.log(req);
+async function getLogin(req) {
+    return await UserModel.getDetails(req.params.id);
 }
 
-async function addUserDeatils(req, res, next) {
+async function addUserDeatils(req) {
   return await UserModel.addUserDeatils(req.body);
 }
