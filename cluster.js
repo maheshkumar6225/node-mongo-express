@@ -8,7 +8,7 @@ module.exports = (app, config) => {
         console.log(`Master ${process.pid} is running`);
       
         // Fork workers.
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 1; i++) {
           let newWorked = cluster.fork();
           let workerId = newWorked.process.pid;
           console.log('Started worker process'+' '+workerId);

@@ -2,8 +2,8 @@ let express = require('express');
 let router = express.Router();
 let userController = require('./user')
 
-router.get('/', (req, res, next) => {
-  let response = userController.getLogin(req, res, next);
+router.get('/', async (req, res, next) => {
+  let response = await userController.getLogin(req, res, next);
   res.json({status:true, data:response});
 });
 
