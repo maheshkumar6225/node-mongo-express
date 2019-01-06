@@ -4,7 +4,7 @@ let config = require('./config/config')
 let events = require('events');
 let eventEmitter = new events.EventEmitter();
 
-function startapp(){
+function startapp() {
 
     let app = express();
     require('./express')(app, config);

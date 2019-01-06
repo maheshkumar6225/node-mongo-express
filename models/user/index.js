@@ -6,23 +6,31 @@ userSchema.statics = {
     addUserDeatils
 }
 
-userSchema.index({username : 1, background: 1})
+userSchema.index({ username: 1, background: 1 })
 
-UserModel = mongoose.model('user',userSchema);
+userSchema.pre('save', async function(next){
+    let doc = this;
+    if(doc.username){
+        console.log(username);
+    }
+});
+
+
+UserModel = mongoose.model('user', userSchema);
 
 module.exports = UserModel;
 
-async function getDetails(userId){
-    let query= {};
+async function getDetails(userId) {
+    let query = {};
     query._id = userId;
     let userDetails = await userModel.find(query).lean().exec();
-    if(!userDetails){
+    if (!userDetails) {
         console.log("No User Found!");
     }
     return userDetails
 }
 
-async function addUserDeatils(userData){
+async function addUserDeatils(userData) {
     let user = new UserModel(userData);
     return await user.save();
 }

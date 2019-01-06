@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-
-
 function connectDatabase(config, eventEmitter){
     function connect(){
         mongoose.connect(config.uri, { useNewUrlParser: true });
