@@ -12,6 +12,7 @@ function startapp() {
     require('./middleware/post-middleware').loadPostMiddleware(app);
     require('./cluster')(app, config);
 }
+
 db.connectDatabase(config.mongoose, eventEmitter);
 eventEmitter.once('connected-db', startapp);
 
