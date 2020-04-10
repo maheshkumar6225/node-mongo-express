@@ -7,10 +7,10 @@ let eventEmitter = new events.EventEmitter();
 function startapp() {
 
     let app = express();
-    require('./express')(app, config);
+    require('./common/express')(app, config);
     require('./controller/index').loadControllers(app);
-    require('./middleware/post-middleware').loadPostMiddleware(app);
-    require('./cluster')(app, config);
+    require('./common/middleware/post-middleware').loadPostMiddleware(app);
+   // require('./cluster')(app, config);
 }
 
 db.connectDatabase(config.mongoose, eventEmitter);
